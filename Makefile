@@ -9,3 +9,6 @@ run-dist:
 
 check:
 	gradle checkstyleMain
+
+checkTest:
+	gradle checkstyleTest

@@ -27,6 +27,5 @@ public class App implements Callable<String> {
 
     public static void main(String[] args) {
         new CommandLine(new App()).execute(args);
-        //int exitCode = new CommandLine(new App()).execute(args);
     }
 }

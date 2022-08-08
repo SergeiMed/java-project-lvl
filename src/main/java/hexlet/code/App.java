@@ -22,8 +22,7 @@ public class App implements Callable<String> {
 
     @Override
     public final String call() throws Exception {
-        Differ differ = new Differ(file, file1);
-        return differ.generate();
+        return Differ.generate(file, file1);
     }
 
     public static void main(String[] args) {

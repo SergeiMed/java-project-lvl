@@ -31,7 +31,6 @@ public class DifferTest {
         writer1.close();
         writer.flush();
         writer.close();
-        Differ differ = new Differ(file, file1);
         String actual = "{\n"
             + "- follow: false\n"
             + "  host: hexlet.io\n"
@@ -40,6 +39,6 @@ public class DifferTest {
             + "+ timeout: 20\n"
             + "+ verbose: true\n"
             + "}\n";
-        Assertions.assertEquals(differ.generate(), actual);
+        Assertions.assertEquals(Differ.generate(file, file1), actual);
     }
 }

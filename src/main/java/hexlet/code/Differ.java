@@ -9,23 +9,7 @@ import java.util.TreeMap;
 
 public class Differ {
 
-    private final File file1;
-    private final File file2;
-
-    public Differ(File firstFile, File secondfile2) {
-        this.file1 = firstFile;
-        this.file2 = secondfile2;
-    }
-
-    public final File getFile1() {
-        return file1;
-    }
-
-    public final File getFile2() {
-        return file2;
-    }
-
-    public final String generate() throws IOException {
+    public static String generate(File file1, File file2) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> scoreByName = mapper.readValue(file1, Map.class);
         Map<String, Object> scoreByName1 = mapper.readValue(file2, Map.class);

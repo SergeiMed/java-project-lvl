@@ -12,3 +12,9 @@ check:
 
 checkTest:
 	gradle checkstyleTest
+
+.PHONY: build
+
+build:
+	./gradlew build
+

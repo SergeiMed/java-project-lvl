@@ -71,7 +71,7 @@ set CLASSPATH=%APP_HOME%\lib\java-project-lvl2.jar;%APP_HOME%\lib\guava-30.1.1-j
 
 
 @rem Execute java-project-lvl2
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %JAVA_PROJECT_LVL2_OPTS%  -classpath "%CLASSPATH%" hexlet.code.Differ %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %JAVA_PROJECT_LVL2_OPTS%  -classpath "%CLASSPATH%" hexlet.code.App %*
 
 :end
 @rem End local scope for the variables with windows NT shell

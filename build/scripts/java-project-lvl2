@@ -201,7 +201,7 @@ fi
 
 set -- \
         -classpath "$CLASSPATH" \
-        hexlet.code.Differ \
+        hexlet.code.App \
         "$@"
 
 # Use "xargs" to parse quoted args.

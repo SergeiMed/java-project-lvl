@@ -2,5 +2,7 @@
 .gradle
 .idea
 build
+
 # Ignore Gradle build output directory
-build
+build/tmp/jar/MANIFEST.MF
+

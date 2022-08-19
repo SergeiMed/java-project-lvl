@@ -2,43 +2,41 @@ package hexlet.code;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
-
-class DifferTest {
+public class DifferTest {
 
     @Test
-    public void testDiffer() throws IOException {
-        File file = new File("src/test/resources/file.json");
-        File file1 = new File("src/test/resources/file1.json");
-        FileWriter writer = new FileWriter(file);
-        FileWriter writer1 = new FileWriter(file1);
-        writer.write("{\n"
-                + "  \"host\": \"hexlet.io\",\n"
-                + "  \"timeout\": 50,\n"
-                + "  \"proxy\": \"123.234.53.22\",\n"
-                + "  \"follow\": false\n"
-                + "}");
-        writer1.write("{\n"
-                + "  \"timeout\": 20,\n"
-                + "  \"verbose\": true,\n"
-                + "  \"host\": \"hexlet.io\"\n"
-                + "}");
-        writer1.flush();
-        writer1.close();
-        writer.flush();
-        writer.close();
-        String actual = "{\n"
-                + "- follow: false\n"
-                + "  host: hexlet.io\n"
-                + "- proxy: 123.234.53.22\n"
-                + "- timeout: 50\n"
-                + "+ timeout: 20\n"
-                + "+ verbose: true\n"
-                + "}";
-        Assertions.assertEquals(Differ.generate(file, file1), actual);
+    public void testGenerate() throws Exception {
+        String expect = """
+                {
+                    chars1: [a, b, c]
+                  - chars2: [d, e, f]
+                  + chars2: false
+                  - checked: false
+                  + checked: true
+                  - default: null
+                  + default: [value1, value2]
+                  - id: 45
+                  + id: null
+                  - key1: value1
+                  + key2: value2
+                    numbers1: [1, 2, 3, 4]
+                  - numbers2: [2, 3, 4, 5]
+                  + numbers2: [22, 33, 44, 55]
+                  - numbers3: [3, 4, 5]
+                  + numbers4: [4, 5, 6]
+                  + obj1: {nestedKey=value, isNested=true}
+                  - setting1: Some value
+                  + setting1: Another value
+                  - setting2: 200
+                  + setting2: 300
+                  - setting3: true
+                  + setting3: none
+                }""";
+        File file1 = new File("./src/test/resources/file.json");
+        File file2 = new File("./src/test/resources/file1.json");
+        String actual = Differ.generate(file1, file2, "stylish");
+        Assertions.assertEquals(expect, actual);
     }
 }

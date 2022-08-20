@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.formats.Plain;
 import hexlet.code.formats.Stylish;
 
 import java.io.File;
@@ -12,11 +13,17 @@ import java.util.TreeMap;
 public class Differ {
 
     public static String generate(File file1, File file2, String format) throws Exception {
-        if (!format.equals("stylish")) {
-            throw new IOException("unknown format!!!!");
+        switch (format) {
+            case "stylish" -> {
+                System.out.println(Stylish.stylish(genDiff(file1, file2)));
+                return Stylish.stylish(genDiff(file1, file2));
+            }
+            case "plain" -> {
+                System.out.println(Plain.plain(genDiff(file1, file2)));
+                return Plain.plain(genDiff(file1, file2));
+            }
+            default -> throw new IOException("unknown format!!!!");
         }
-        System.out.println(Stylish.stylish(genDiff(file1, file2)));
-        return Stylish.stylish(genDiff(file1, file2));
     }
 
     static Map<String, ValueInfo<Object>> genDiff(File file1, File file2) throws IOException {
@@ -34,9 +41,15 @@ public class Differ {
             }
             if (map2.containsKey(map.getKey())) {
                 if (!map.getValue().equals(map2.get(map.getKey()))) {
+                    if (map.getValue().equals("null")) {
+                        map.setValue(null);
+                    }
                     differMap.put(map.getKey(), new ValueInfo<>(map.getValue(), map2.get(map.getKey()), "changed"));
                 } else if (map2.containsKey(map.getKey())
                     && map.getValue().equals(map2.get(map.getKey()))) {
+                    if (map.getValue().equals("null")) {
+                        map.setValue(null);
+                    }
                     differMap.put(map.getKey(), new ValueInfo<>(map.getValue(), map.getValue(), "unchanged"));
                 }
             }

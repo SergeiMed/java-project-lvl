@@ -2,8 +2,8 @@ package hexlet.code;
 
 public final class ValueInfo<T> {
 
-    private final T firstValue;
-    private final T secondValue;
+    private T firstValue;
+    private T secondValue;
     private final String status;
 
     public ValueInfo(T oldValue, T newValue, String statusValue) {
@@ -22,6 +22,14 @@ public final class ValueInfo<T> {
 
     public String getStatus() {
         return status;
+    }
+
+    public void setSecondValue(T newValue) {
+        this.secondValue = newValue;
+    }
+
+    public void setFirstValue(T oldValue) {
+        this.firstValue = oldValue;
     }
 }
 

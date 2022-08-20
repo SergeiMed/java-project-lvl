@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.formats.Json;
 import hexlet.code.formats.Plain;
 import hexlet.code.formats.Stylish;
 
@@ -21,6 +22,10 @@ public class Differ {
             case "plain" -> {
                 System.out.println(Plain.plain(genDiff(file1, file2)));
                 return Plain.plain(genDiff(file1, file2));
+            }
+            case "json" -> {
+                System.out.println(Json.json(genDiff(file1, file2)));
+                return Json.json(genDiff(file1, file2));
             }
             default -> throw new IOException("unknown format!!!!");
         }

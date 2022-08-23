@@ -78,6 +78,9 @@ compileJava {
     options.release = 17
 }
 
+compileTestJava {
+    options.release = 17
+}
 application {
     // Define the main class for the application.
     mainClass = 'hexlet.code.App'

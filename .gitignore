@@ -2,6 +2,12 @@
 .gradle
 .idea
 build
+src/test/resources/file.json
+src/test/resources/file1.json
+file1.yml
+file2.yml
+file5.json
+file6.json
 
 # Ignore Gradle build output directory
 build/tmp/jar/MANIFEST.MF

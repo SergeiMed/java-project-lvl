@@ -16,15 +16,15 @@ public class Differ {
     public static String generate(File file1, File file2, String format) throws Exception {
         switch (format) {
             case "stylish" -> {
-                System.out.println(Stylish.stylish(genDiff(file1, file2)));
+                //System.out.println(Stylish.stylish(genDiff(file1, file2)));
                 return Stylish.stylish(genDiff(file1, file2));
             }
             case "plain" -> {
-                System.out.println(Plain.plain(genDiff(file1, file2)));
+                //System.out.println(Plain.plain(genDiff(file1, file2)));
                 return Plain.plain(genDiff(file1, file2));
             }
             case "json" -> {
-                System.out.println(Json.json(genDiff(file1, file2)));
+                //System.out.println(Json.json(genDiff(file1, file2)));
                 return Json.json(genDiff(file1, file2));
             }
             default -> throw new IOException("unknown format!!!!");
@@ -32,7 +32,7 @@ public class Differ {
     }
 
     public static String generate(File file1, File file2) throws Exception {
-        System.out.println(Stylish.stylish(genDiff(file1, file2)));
+        //System.out.println(Stylish.stylish(genDiff(file1, file2)));
         return Stylish.stylish(genDiff(file1, file2));
     }
 

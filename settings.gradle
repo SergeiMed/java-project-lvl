@@ -8,5 +8,4 @@
  * This project uses @Incubating APIs which are subject to change.
  */
 
-rootProject.name = 'java-project-lvl2'
-include('app')
+rootProject.name = 'app'

@@ -30,6 +30,11 @@ public class Differ {
         }
     }
 
+    public static String generate(String file1, String file2) throws Exception {
+        System.out.println(Stylish.stylish(genDiff(file1, file2)));
+        return Stylish.stylish(genDiff(file1, file2));
+    }
+
     static Map<String, ValueInfo<Object>> genDiff(String file1, String file2) throws IOException {
         String fileToString = Files.readString(Paths.get(String.valueOf(file1)));
         String fileToString1 = Files.readString(Paths.get(String.valueOf(file2)));

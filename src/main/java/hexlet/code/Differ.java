@@ -19,20 +19,15 @@ public class Differ {
                 return Stylish.stylish(genDiff(file1, file2));
             }
             case "plain" -> {
-                //System.out.println(Plain.plain(genDiff(file1, file2)));
+                System.out.println(Plain.plain(genDiff(file1, file2)));
                 return Plain.plain(genDiff(file1, file2));
             }
             case "json" -> {
-                //System.out.println(Json.json(genDiff(file1, file2)));
+                System.out.println(Json.json(genDiff(file1, file2)));
                 return Json.json(genDiff(file1, file2));
             }
             default -> throw new IOException("unknown format!!!!");
         }
-    }
-
-    public static String generate(String file1, String file2) throws Exception {
-        //System.out.println(Stylish.stylish(genDiff(file1, file2)));
-        return Stylish.stylish(genDiff(file1, file2));
     }
 
     static Map<String, ValueInfo<Object>> genDiff(String file1, String file2) throws IOException {

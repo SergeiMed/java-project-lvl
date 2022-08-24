@@ -61,10 +61,10 @@ checkstyle {
 
 dependencies {
     // This dependency is used by the application.
-    implementation 'com.google.guava:guava:30.1.1-jre'
+    implementation 'com.google.guava:guava:31.1-jre'
     implementation 'info.picocli:picocli:4.6.3'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
-    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.11.2'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.3'
 }
 
 testing {
@@ -81,9 +81,6 @@ compileJava {
     options.release = 17
 }
 
-compileTestJava {
-    options.release = 17
-}
 application {
     // Define the main class for the application.
     mainClass = 'hexlet.code.App'

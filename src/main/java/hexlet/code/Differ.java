@@ -4,7 +4,6 @@ import hexlet.code.formats.Json;
 import hexlet.code.formats.Plain;
 import hexlet.code.formats.Stylish;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -13,10 +12,10 @@ import java.util.TreeMap;
 
 public class Differ {
 
-    public static String generate(File file1, File file2, String format) throws Exception {
+    public static String generate(String file1, String file2, String format) throws Exception {
         switch (format) {
             case "stylish" -> {
-                //System.out.println(Stylish.stylish(genDiff(file1, file2)));
+                System.out.println(Stylish.stylish(genDiff(file1, file2)));
                 return Stylish.stylish(genDiff(file1, file2));
             }
             case "plain" -> {
@@ -31,12 +30,12 @@ public class Differ {
         }
     }
 
-    public static String generate(File file1, File file2) throws Exception {
+    public static String generate(String file1, String file2) throws Exception {
         //System.out.println(Stylish.stylish(genDiff(file1, file2)));
         return Stylish.stylish(genDiff(file1, file2));
     }
 
-    static Map<String, ValueInfo<Object>> genDiff(File file1, File file2) throws IOException {
+    static Map<String, ValueInfo<Object>> genDiff(String file1, String file2) throws IOException {
         String fileToString = Files.readString(Paths.get(String.valueOf(file1)));
         String fileToString1 = Files.readString(Paths.get(String.valueOf(file2)));
         Map<String, Object> map1 = Parser.parser(fileToString);

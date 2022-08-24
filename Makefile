@@ -5,7 +5,7 @@ installDist:
 	./gradlew installDist
 
 run-dist:
-	./build/install/java-project-lvl2/bin/java-project-lvl2
+	./build/install/app/bin/app
 
 check:
 	gradle checkstyleMain

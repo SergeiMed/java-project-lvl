@@ -50,6 +50,7 @@ public class Plain {
                 }
             }
         }
+        builder.deleteCharAt(builder.length() - 1);
         return builder.toString();
     }
 }

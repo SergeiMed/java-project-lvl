@@ -19,21 +19,3 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
-  coverage:
-    needs: [ test ]
-    name: coverage
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-    - run: npm install -g yarn
-    - run: yarn install
-    - run: yarn build
-    - uses: paambaati/codeclimate-action@v2.2.4
-      env:
-          CC_TEST_REPORTER_ID: 771ba735c8f73838dfc1fbf7abbe7dcf4cdbfa9d800a5f292d276db76a7ce014
-      with:
-          coverageCommand: yarn coverage

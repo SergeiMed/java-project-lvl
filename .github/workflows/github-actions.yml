@@ -20,14 +20,14 @@ jobs:
         with:
           arguments: build
   coverage:
-    needs: [ test ]
+    needs: jacocoTestReport
     name: coverage
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
+      - uses: actions/checkout@v2
         with:
-          node-version: '12'
+          java-version: '17'
+          distribution: 'temurin'
       - run: npm install -g yarn
       - run: yarn install
       - run: yarn build

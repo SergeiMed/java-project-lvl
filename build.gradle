@@ -67,6 +67,15 @@ dependencies {
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.3'
 }
 
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.enabled true
+        csv.enabled true
+        html.enabled false
+    }
+}
+
 testing {
     suites {
         // Configure the built-in test suite

@@ -19,11 +19,3 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
-      - name: Publish code coverage
-        uses: paambaati/codeclimate-action@v3.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{secrets.CODE_COVERAGE}}
-          JACOCO_SOURCE_PATH: src/main/java ./cc-test-reporter format-coverage ./build/customJacocoReportDir/test/jacocoTestReport.xml --input-type jacoco
-        with:
-          coverageCommand: make jacoco
-          coverageLocations: https://github.com/SergeiMed/java-project-lvl2/build/reports/jacoco/test/jacocoTestReport.xml:jacoco

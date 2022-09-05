@@ -1,7 +1,7 @@
 # Ignore Gradle project-specific cache directory
 .gradle
 .idea
-./build
+build/
 src/test/resources/file.json
 src/test/resources/file1.json
 file1.yml

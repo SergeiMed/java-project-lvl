@@ -25,6 +25,6 @@ public class ParserTest {
         expect.put("timeout", testNumber);
         expect.put("proxy", "123.234.53.22");
         expect.put("follow", false);
-        Assertions.assertEquals(expect, Parser.parser(json));
+        Assertions.assertEquals(expect, Parser.parser(json, ".json"));
     }
 }

@@ -15,7 +15,7 @@ public class DifferTest {
 
     @BeforeEach
     public final void setupTest() throws IOException {
-        file1 = new File("./src/test/resources/file.json");
+        file1 = new File("./src/test/resources/fixtures/file.json");
         FileWriter fileWriter = new FileWriter(file1);
         PrintWriter printWriter = new PrintWriter(fileWriter);
         printWriter.print("""
@@ -34,7 +34,7 @@ public class DifferTest {
                   "chars2": ["d", "e", "f"]
                 }""");
         printWriter.close();
-        file2 = new File("./src/test/resources/file1.json");
+        file2 = new File("./src/test/resources/fixtures/file1.json");
         FileWriter fileWriter1 = new FileWriter(file2);
         PrintWriter printWriter1 = new PrintWriter(fileWriter1);
         printWriter1.print("""
@@ -87,7 +87,8 @@ public class DifferTest {
                   - setting3: true
                   + setting3: none
                 }""";
-        String actual = Differ.generate("./src/test/resources/file.json", "./src/test/resources/file1.json", "stylish");
+        String actual = Differ.generate("./src/test/resources/fixtures/file.json",
+                "./src/test/resources/fixtures/file1.json", "stylish");
         Assertions.assertEquals(expect, actual);
     }
 
@@ -107,7 +108,8 @@ public class DifferTest {
                 Property 'setting1' was updated. From 'Some value' to 'Another value'
                 Property 'setting2' was updated. From 200 to 300
                 Property 'setting3' was updated. From true to 'none'""";
-        String actual = Differ.generate("./src/test/resources/file.json", "./src/test/resources/file1.json", "plain");
+        String actual = Differ.generate("./src/test/resources/fixtures/file.json",
+                "./src/test/resources/fixtures/file1.json", "plain");
         Assertions.assertEquals(expect, actual);
     }
 
@@ -194,7 +196,8 @@ public class DifferTest {
                     "status" : "changed"
                   }
                 }""";
-        String actual = Differ.generate("./src/test/resources/file.json", "./src/test/resources/file1.json", "json");
+        String actual = Differ.generate("./src/test/resources/fixtures/file.json",
+                "./src/test/resources/fixtures/file1.json", "json");
         Assertions.assertEquals(jsonString, actual);
     }
 }

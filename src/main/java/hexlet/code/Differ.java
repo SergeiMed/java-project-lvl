@@ -3,12 +3,12 @@ package hexlet.code;
 import hexlet.code.formats.Json;
 import hexlet.code.formats.Plain;
 import hexlet.code.formats.Stylish;
+import hexlet.code.formats.Tree;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class Differ {
 
@@ -35,42 +35,27 @@ public class Differ {
         return Stylish.stylish(genDiff(file1, file2));
     }
 
+    public static Map<String, Object> getData(String filePath) throws IOException {
+        String fileFormat;
+        String fileToString;
+        try {
+            fileToString = Files.readString(Path.of(filePath));
+        } catch (IOException e) {
+            throw new IOException("incorrect filePath");
+        }
+        if (filePath.endsWith(".json")) {
+            fileFormat = ".json";
+        } else if (filePath.endsWith(".yml") || filePath.endsWith(".yaml")) {
+            fileFormat = ".yml";
+        } else {
+            throw new IOException("Incorrect file format");
+        }
+        return Parser.parser(fileToString, fileFormat);
+    }
+
     static Map<String, ValueInfo<Object>> genDiff(String file1, String file2) throws IOException {
-        String fileToString = Files.readString(Paths.get(String.valueOf(file1)));
-        String fileToString1 = Files.readString(Paths.get(String.valueOf(file2)));
-        Map<String, Object> map1 = Parser.parser(fileToString);
-        Map<String, Object> map2 = Parser.parser(fileToString1);
-        Map<String, ValueInfo<Object>> differMap = new TreeMap<>();
-        for (Map.Entry<String, Object> map : map1.entrySet()) {
-            if (map.getValue() == null) {
-                map.setValue("null");
-            }
-            if (!map2.containsKey(map.getKey())) {
-                differMap.put(map.getKey(), new ValueInfo<>(map.getValue(), null, "delete"));
-            }
-            if (map2.containsKey(map.getKey())) {
-                if (!map.getValue().equals(map2.get(map.getKey()))) {
-                    if (map.getValue().equals("null")) {
-                        map.setValue(null);
-                    }
-                    differMap.put(map.getKey(), new ValueInfo<>(map.getValue(), map2.get(map.getKey()), "changed"));
-                } else if (map2.containsKey(map.getKey())
-                    && map.getValue().equals(map2.get(map.getKey()))) {
-                    if (map.getValue().equals("null")) {
-                        map.setValue(null);
-                    }
-                    differMap.put(map.getKey(), new ValueInfo<>(map.getValue(), map.getValue(), "unchanged"));
-                }
-            }
-        }
-        for (Map.Entry<String, Object> map3 : map2.entrySet()) {
-            if (map3.getValue() == null) {
-                map3.setValue("null");
-            }
-            if (!map1.containsKey(map3.getKey())) {
-                differMap.put(map3.getKey(), new ValueInfo<>(null, map3.getValue(), "new"));
-            }
-        }
-        return differMap;
+        Map<String, Object> map1 = getData(file1);
+        Map<String, Object> map2 = getData(file2);
+        return Tree.build(map1, map2);
     }
 }

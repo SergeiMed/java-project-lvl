@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Stylish {
 
-    public static String stylish(Map<String, ValueInfo<Object>> map) throws Exception {
+    public static String format(Map<String, ValueInfo<Object>> map) throws Exception {
         StringBuilder builder = new StringBuilder("{\n");
         for (Map.Entry<String, ValueInfo<Object>> entry : map.entrySet()) {
             switch (entry.getValue().getStatus()) {

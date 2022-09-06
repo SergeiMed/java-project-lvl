@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Json {
 
-    public static String json(Map<String, ValueInfo<Object>> map) throws IOException {
+    public static String format(Map<String, ValueInfo<Object>> map) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(map);
     }

@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Plain {
 
-    public static String plain(Map<String, ValueInfo<Object>> map) throws Exception {
+    public static String format(Map<String, ValueInfo<Object>> map) throws Exception {
         StringBuilder builder = new StringBuilder();
         for (Map.Entry<String, ValueInfo<Object>> entry : map.entrySet()) {
             if (!(entry.getValue().getFirstValue() instanceof String

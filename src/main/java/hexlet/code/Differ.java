@@ -1,10 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.formats.Json;
-import hexlet.code.formats.Plain;
-import hexlet.code.formats.Stylish;
-import hexlet.code.formats.Tree;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,26 +8,11 @@ import java.util.Map;
 public class Differ {
 
     public static String generate(String file1, String file2, String format) throws Exception {
-        switch (format) {
-            case "stylish" -> {
-                System.out.println(Stylish.stylish(genDiff(file1, file2)));
-                return Stylish.stylish(genDiff(file1, file2));
-            }
-            case "plain" -> {
-                System.out.println(Plain.plain(genDiff(file1, file2)));
-                return Plain.plain(genDiff(file1, file2));
-            }
-            case "json" -> {
-                System.out.println(Json.json(genDiff(file1, file2)));
-                return Json.json(genDiff(file1, file2));
-            }
-            default -> throw new IOException("unknown format!!!!");
-        }
+        return Formatter.getFormattedString(genDiff(file1, file2), format);
     }
 
     public static String generate(String file1, String file2) throws Exception {
-        System.out.println(Stylish.stylish(genDiff(file1, file2)));
-        return Stylish.stylish(genDiff(file1, file2));
+        return generate(file1, file2, "stylish");
     }
 
     public static Map<String, Object> getData(String filePath) throws IOException {

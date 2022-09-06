@@ -1,6 +1,4 @@
-package hexlet.code.formats;
-
-import hexlet.code.ValueInfo;
+package hexlet.code;
 
 import java.util.Map;
 import java.util.TreeMap;

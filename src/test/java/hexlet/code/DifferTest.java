@@ -1,63 +1,9 @@
 package hexlet.code;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 public class DifferTest {
-
-    private static File file1;
-    private static File file2;
-
-    @BeforeEach
-    public final void setupTest() throws IOException {
-        file1 = new File("./src/test/resources/fixtures/file.json");
-        FileWriter fileWriter = new FileWriter(file1);
-        PrintWriter printWriter = new PrintWriter(fileWriter);
-        printWriter.print("""
-                {
-                  "setting1": "Some value",
-                  "setting2": 200,
-                  "setting3": true,
-                  "key1": "value1",
-                  "numbers1": [1, 2, 3, 4],
-                  "numbers2": [2, 3, 4, 5],
-                  "id": 45,
-                  "default": null,
-                  "checked": false,
-                  "numbers3": [3, 4, 5],
-                  "chars1": ["a", "b", "c"],
-                  "chars2": ["d", "e", "f"]
-                }""");
-        printWriter.close();
-        file2 = new File("./src/test/resources/fixtures/file1.json");
-        FileWriter fileWriter1 = new FileWriter(file2);
-        PrintWriter printWriter1 = new PrintWriter(fileWriter1);
-        printWriter1.print("""
-                {
-                  "setting1": "Another value",
-                  "setting2": 300,
-                  "setting3": "none",
-                  "key2": "value2",
-                  "numbers1": [1, 2, 3, 4],
-                  "numbers2": [22, 33, 44, 55],
-                  "id": null,
-                  "default": ["value1", "value2"],
-                  "checked": true,
-                  "numbers4": [4, 5, 6],
-                  "chars1": ["a", "b", "c"],
-                  "chars2": false,
-                  "obj1": {
-                    "nestedKey": "value",
-                    "isNested": true
-                  }
-                }""");
-        printWriter1.close();
-    }
 
     @Test
     public void testGenerate() throws Exception {

@@ -4,7 +4,6 @@ import hexlet.code.formats.Json;
 import hexlet.code.formats.Plain;
 import hexlet.code.formats.Stylish;
 
-import java.io.IOException;
 import java.util.Map;
 
 public class Formatter {
@@ -20,7 +19,7 @@ public class Formatter {
             case "json" -> {
                 return Json.format(map);
             }
-            default -> throw new IOException("unknown format!!!!");
+            default -> throw new RuntimeException("unknown format!!!!");
         }
     }
 }

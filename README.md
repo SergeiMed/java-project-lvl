@@ -2,7 +2,7 @@
 
 Утилита запускается из терминала и сравнивает 2 конфигурационных файла в форматах YML, YAML, JSON. 
 Показывает разницу в файлах в трех форматах: plain, stylish, json.
-Учебный проект в рамках курса [Java-разработчик](https://ru.hexlet.io/programs/java)
+Учебный проект в рамках курса [Java-разработчик](https://ru.hexlet.io/programs/java) в [Hexlet](https://ru.hexlet.io).
 
 ## Использование:
 

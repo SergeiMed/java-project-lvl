@@ -3,6 +3,7 @@ package hexlet.code;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 
 public class Differ {
@@ -15,22 +16,24 @@ public class Differ {
         return generate(file1, file2, "stylish");
     }
 
-    public static Map<String, Object> getData(String filePath) throws IOException {
-        String fileFormat;
-        String fileToString;
-        try {
-            fileToString = Files.readString(Path.of(filePath));
-        } catch (IOException e) {
-            throw new IOException("incorrect filePath");
-        }
+    public static String getDataFormat(String filePath) throws IOException {
         if (filePath.endsWith(".json")) {
-            fileFormat = ".json";
+            return ".json";
         } else if (filePath.endsWith(".yml") || filePath.endsWith(".yaml")) {
-            fileFormat = ".yml";
+            return ".yml";
         } else {
             throw new IOException("Incorrect file format");
         }
-        return Parser.parser(fileToString, fileFormat);
+    }
+
+    public static Path getFullPath(String filePath) {
+        return Paths.get(filePath).toAbsolutePath().normalize();
+    }
+
+    public static Map<String, Object> getData(String filePath) throws IOException {
+        String fileToString;
+        fileToString = Files.readString(getFullPath(filePath));
+        return Parser.parser(fileToString, getDataFormat(filePath));
     }
 
     static Map<String, ValueInfo<Object>> genDiff(String file1, String file2) throws IOException {

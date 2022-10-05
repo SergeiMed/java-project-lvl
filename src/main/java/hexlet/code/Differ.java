@@ -16,27 +16,20 @@ public class Differ {
         return generate(file1, file2, "stylish");
     }
 
-    public static String getDataFormat(String filePath) throws IOException {
-        if (filePath.endsWith(".json")) {
-            return ".json";
-        } else if (filePath.endsWith(".yml") || filePath.endsWith(".yaml")) {
-            return ".yml";
-        } else {
-            throw new IOException("Incorrect file format");
-        }
+    private static String getDataFormat(String filePath) {
+        return filePath.substring(filePath.lastIndexOf(".")).substring(1);
     }
 
-    public static Path getFullPath(String filePath) {
+    private static Path getFullPath(String filePath) {
         return Paths.get(filePath).toAbsolutePath().normalize();
     }
 
-    public static Map<String, Object> getData(String filePath) throws IOException {
-        String fileToString;
-        fileToString = Files.readString(getFullPath(filePath));
+    private static Map<String, Object> getData(String filePath) throws IOException {
+        String fileToString = Files.readString(getFullPath(filePath));
         return Parser.parser(fileToString, getDataFormat(filePath));
     }
 
-    static Map<String, ValueInfo<Object>> genDiff(String file1, String file2) throws IOException {
+    private static Map<String, ValueInfo<Object>> genDiff(String file1, String file2) throws IOException {
         Map<String, Object> map1 = getData(file1);
         Map<String, Object> map2 = getData(file2);
         return Tree.build(map1, map2);

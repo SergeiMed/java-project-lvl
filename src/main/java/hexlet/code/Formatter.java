@@ -19,7 +19,7 @@ public class Formatter {
             case "json" -> {
                 return Json.format(map);
             }
-            default -> throw new RuntimeException("unknown format!!!!");
+            default -> throw new RuntimeException("Unknown format!");
         }
     }
 }

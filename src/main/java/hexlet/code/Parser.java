@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
@@ -14,18 +13,22 @@ public class Parser {
     public static Map<String, Object> parser(String fileToString, String fileFormat) throws IOException {
         switch (fileFormat) {
             case "yml", "yaml" -> {
-                mapper = new ObjectMapper(new YAMLFactory());
+                return parseYaml(fileToString);
             }
             case "json" -> {
-                mapper = new ObjectMapper();
+                return parseJson(fileToString);
             }
             default -> throw new RuntimeException("Unknown format");
         }
+    }
+
+    public static Map<String, Object> parseYaml(String fileToString) throws IOException {
+        mapper = new ObjectMapper(new YAMLFactory());
         return mapper.readValue(fileToString, Map.class);
     }
 
-    public static Map<String, Object> parseYaml(String fileToString) throws JsonProcessingException {
-        mapper = new ObjectMapper(new YAMLFactory());
+    public static Map<String, Object> parseJson(String fileToString) throws IOException {
+        mapper = new ObjectMapper();
         return mapper.readValue(fileToString, Map.class);
     }
 }

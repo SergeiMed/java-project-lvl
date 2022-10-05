@@ -25,6 +25,7 @@ public class App implements Callable<Integer> {
             System.out.println(Differ.generate(file, file1, format));
             return 0;
         } catch (Exception e) {
+            System.out.println("Incorrect data input");
             return 1;
         }
     }

@@ -18,7 +18,7 @@ public class Parser {
             case "json" -> {
                 return parseJson(fileToString);
             }
-            default -> throw new RuntimeException("Unknown format");
+            default -> throw new RuntimeException("Unknown format!");
         }
     }
 

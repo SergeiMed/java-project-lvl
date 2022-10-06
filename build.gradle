@@ -92,5 +92,6 @@ compileJava {
 
 application {
     // Define the main class for the application.
+    sourceSets.main.java.srcDirs = ['app/src']
     mainClass = 'hexlet.code.App'
 }

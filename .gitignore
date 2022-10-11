@@ -2,10 +2,10 @@
 .gradle
 .idea
 build/
-file.json
-file1.json
-file1.yml
-file2.yml
+app/file.json
+app/file1.json
+app/file1.yml
+app/file2.yml
 file5.json
 file6.json
 

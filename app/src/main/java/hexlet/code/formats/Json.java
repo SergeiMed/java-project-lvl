@@ -1,6 +1,5 @@
 package hexlet.code.formats;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hexlet.code.ValueInfo;
 

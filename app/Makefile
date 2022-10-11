@@ -19,4 +19,4 @@ build:
 	./gradlew build
 
 jacoco:
-	app/gradle jacocoTestReport
+	gradle jacocoTestReport

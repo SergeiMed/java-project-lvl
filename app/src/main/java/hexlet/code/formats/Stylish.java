@@ -32,7 +32,7 @@ public class Stylish {
                         .append(": ")
                         .append(entry.getValue().getSecondValue())
                         .append("\n");
-                case "delete" -> builder.append("  - ")
+                case "deleted" -> builder.append("  - ")
                         .append(entry.getKey())
                         .append(": ")
                         .append(entry.getValue().getFirstValue())

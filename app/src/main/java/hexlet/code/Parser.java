@@ -10,7 +10,7 @@ public class Parser {
 
     private static ObjectMapper mapper;
 
-    public static Map<String, Object> parser(String fileToString, String fileFormat) throws IOException {
+    public static Map<String, Object> parse(String fileToString, String fileFormat) throws IOException {
         switch (fileFormat) {
             case "yml", "yaml" -> {
                 return parseYaml(fileToString);

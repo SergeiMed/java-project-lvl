@@ -26,7 +26,7 @@ public class Differ {
 
     private static Map<String, Object> getData(String filePath) throws IOException {
         String fileToString = Files.readString(getFullPath(filePath));
-        return Parser.parser(fileToString, getDataFormat(filePath));
+        return Parser.parse(fileToString, getDataFormat(filePath));
     }
 
     private static Map<String, ValueInfo<Object>> genDiff(String file1, String file2) throws IOException {

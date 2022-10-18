@@ -27,7 +27,7 @@
   "key1" : {
     "firstValue" : "value1",
     "secondValue" : null,
-    "status" : "delete"
+    "status" : "deleted"
   },
   "key2" : {
     "firstValue" : null,
@@ -47,7 +47,7 @@
   "numbers3" : {
     "firstValue" : [ 3, 4, 5 ],
     "secondValue" : null,
-    "status" : "delete"
+    "status" : "deleted"
   },
   "numbers4" : {
     "firstValue" : null,

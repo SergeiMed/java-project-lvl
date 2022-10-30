@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+app,hexlet.code.formats,Json,3,9,0,0,1,2,1,1,1,1
+app,hexlet.code.formats,Stylish,8,124,1,6,2,32,2,5,1,1
+app,hexlet.code.formats,Plain,8,127,1,19,2,29,2,12,1,2
+app,hexlet.code,Tree,14,133,1,15,2,17,2,8,1,1
+app,hexlet.code,Differ,3,45,0,0,1,9,1,6,1,6
+app,hexlet.code,Parser,8,37,1,2,2,7,2,4,1,3
+app,hexlet.code,ValueInfo,8,21,0,0,4,8,2,4,2,4
+app,hexlet.code,App,34,0,0,0,9,0,3,0,3,0
+app,hexlet.code,Formatter,8,17,1,3,2,4,2,3,1,1

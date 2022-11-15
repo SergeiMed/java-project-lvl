@@ -21,10 +21,11 @@ jobs:
           arguments: build
           build-root-directory: app
       - name: Publish hexlet.code coverage
-        uses: paambaati/codeclimate-action@v3.0.0
+        uses: paambaati/codeclimate-action@v3.2.0
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
           JACOCO_SOURCE_PATH: app/src/main/java
         with:
-          coverageCommand: gradle -p app jacocoTestReport
-          coverageLocations: ${{github.workspace}}app/build/customJacocoReportDir/test/jacocoTestReport.xml:jacoco
+          workingDirectory: app
+          coverageCommand: make jacocoTestReport
+          coverageLocations: ${{github.workspace}}/app/build/customJacocoReportDir/test/jacocoTestReport.xml:jacoco

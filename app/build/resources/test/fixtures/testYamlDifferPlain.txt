@@ -1,3 +1,0 @@
-Property 'age' was added with value: 5
-Property 'breed' was updated. From 'German shepherd' to 'Alabai'
-Property 'color' was updated. From 'black and red' to 'grey'

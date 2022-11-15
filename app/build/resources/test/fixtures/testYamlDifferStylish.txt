@@ -1,9 +1,0 @@
-{
-  + age: 5
-    animal: dog
-  - breed: German shepherd
-  + breed: Alabai
-  - color: black and red
-  + color: grey
-    nickname: Muhtar
-}
